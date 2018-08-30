@@ -7,6 +7,18 @@ Proposed solution - something similar to HashCodeMessageExtractor, but each shar
 
 It seems like both implementations of IMessageExtractor in the repo should give the above behavior.
 
+First of them should create actors like that:
+/1/the_one_and_only
+/2/the_one_and_only
+..etc
+
+Second one like that:
+/1/1
+/2/2
+...etc
+
+# Repro
+
 How to run:
 
 Have some recent version of .Net Core installed.
@@ -46,4 +58,6 @@ type anything to send messages to sharded actors. All sharded entities will get 
 now it is possible to send messages on both nodes without issues by typing in terminals
 ```
 
+# UPADTE2:
 
+The issue appears for both IMessageExtractor implementations. The issue appears even when `remember-entities` is not used, like in this branch https://github.com/pmbanka/akka-shards-spam-repro/tree/no-remember-entities
