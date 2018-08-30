@@ -33,3 +33,17 @@ Actual result - tons of messages like that:
 [DEBUG][30-Aug-18 15:21:31][Thread 0011][LocalActorRefProvider(akka://repro)] Resolve of path sequence [/deadLetters] failed
 [DEBUG][30-Aug-18 15:21:31][Thread 0026][[akka://repro/system/sharding/sharded#2139169847]] Forwarding request for shard [1] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#859126224]]
 ```
+
+# UPDATE:
+
+I just noticed that the problem does not show when you do a sequence of actions like that:
+
+```
+> dotnet build
+> dotnet run --whatever (this will cause it to be a seed node)
+click anything to send messages to sharded actors. All sharded entities will get spawned
+> dotnet run
+now it is possible to send messages on both nodes without issues.
+```
+
+
