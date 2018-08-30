@@ -1,0 +1,18 @@
+akka {
+    loglevel = DEBUG
+    log-config-on-start = on
+    actor.provider = cluster
+	remote {
+		dot-netty.tcp {
+			hostname = "127.0.0.1"
+			port = 4053
+        }
+	}
+    cluster {
+      seed-nodes = [ "akka.tcp://repro@127.0.0.1:4053/" ]
+      sharding {
+        state-store-mode = ddata
+        remember-entities = on
+      }
+    }
+}
