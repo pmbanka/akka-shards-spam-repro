@@ -12,7 +12,6 @@ akka {
       seed-nodes = [ "akka.tcp://repro@127.0.0.1:4053/" ]
       sharding {
         state-store-mode = ddata
-        remember-entities = on
       }
     }
 }

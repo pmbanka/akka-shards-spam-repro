@@ -156,7 +156,7 @@ namespace ConsoleApp1
             var region = 
                 ClusterSharding
                     .Get(system)
-                    .Start("sharded", Props.Create<MyActor>(), ClusterShardingSettings.Create(system), new MyExtractor<string>(5));
+                    .Start("sharded", Props.Create<MyActor>(), ClusterShardingSettings.Create(system), new MyExtractor2<string>(5));
 
             while (Console.ReadKey().Key != ConsoleKey.Q)
             {
