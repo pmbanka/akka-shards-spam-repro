@@ -41,9 +41,9 @@ I just noticed that the problem does not show when you do a sequence of actions 
 ```
 > dotnet build
 > dotnet run --whatever (this will cause it to be a seed node)
-click anything to send messages to sharded actors. All sharded entities will get spawned
+type anything to send messages to sharded actors. All sharded entities will get spawned
 > dotnet run
-now it is possible to send messages on both nodes without issues.
+now it is possible to send messages on both nodes without issues by typing in terminals
 ```
 
 
