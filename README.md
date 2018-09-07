@@ -3,16 +3,7 @@
 The goal is to have an exact number of actors spread among the cluster, and to route messages to these actors in
 a round robin/randomized manner. The actors number should remain constant, no matter how many nodes are running.
 
-Proposed solution - something similar to HashCodeMessageExtractor, but each shard contains only one entity.
-
-It seems like both implementations of IMessageExtractor in the repo should give the above behavior.
-
-First of them should create actors like that:
-/1/the_one_and_only
-/2/the_one_and_only
-..etc
-
-Second one like that:
+Proposed solution - something similar to HashCodeMessageExtractor, but each shard contains only one entity. Implemented extractor creates pairs of shardId/entityId like that:
 /1/1
 /2/2
 ...etc
@@ -46,6 +37,8 @@ Actual result - tons of messages like that:
 [DEBUG][30-Aug-18 15:21:31][Thread 0026][[akka://repro/system/sharding/sharded#2139169847]] Forwarding request for shard [1] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#859126224]]
 ```
 
+N.B. `remember-entities` is not used.
+
 # UPDATE:
 
 I just noticed that the problem does not show when you do a sequence of actions like that:
@@ -57,7 +50,3 @@ type anything to send messages to sharded actors. All sharded entities will get 
 > dotnet run
 now it is possible to send messages on both nodes without issues by typing in terminals
 ```
-
-# UPADTE2:
-
-The issue appears for both IMessageExtractor implementations. The issue appears even when `remember-entities` is not used, like in this branch https://github.com/pmbanka/akka-shards-spam-repro/tree/no-remember-entities
