@@ -1,5 +1,7 @@
 # akka-shards-spam-repro
 
+Resolved! See https://github.com/akkadotnet/akka.net/issues/3522
+
 The goal is to have an exact number of actors spread among the cluster, and to route messages to these actors in
 a round robin/randomized manner. The actors number should remain constant, no matter how many nodes are running.
 
