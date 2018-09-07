@@ -27,14 +27,24 @@ Expected result - some messages are printed, then nothing spectacular happens
 Actual result - tons of messages like that:
 
 ```
-[DEBUG][30-Aug-18 15:21:31][Thread 0009][LocalActorRefProvider(akka://repro)] Resolve of path sequence [/deadLetters] failed
-[DEBUG][30-Aug-18 15:21:31][Thread 0026][[akka://repro/system/sharding/sharded#2139169847]] Forwarding request for shard [1] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#859126224]]
-[DEBUG][30-Aug-18 15:21:31][Thread 0026][[akka://repro/system/sharding/sharded#2139169847]] Forwarding request for shard [1] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#859126224]]
-[DEBUG][30-Aug-18 15:21:31][Thread 0009][LocalActorRefProvider(akka://repro)] Resolve of path sequence [/deadLetters] failed
-[DEBUG][30-Aug-18 15:21:31][Thread 0026][[akka://repro/system/sharding/sharded#2139169847]] Forwarding request for shard [1] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#859126224]]
-[DEBUG][30-Aug-18 15:21:31][Thread 0026][[akka://repro/system/sharding/sharded#2139169847]] Forwarding request for shard [1] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#859126224]]
-[DEBUG][30-Aug-18 15:21:31][Thread 0011][LocalActorRefProvider(akka://repro)] Resolve of path sequence [/deadLetters] failed
-[DEBUG][30-Aug-18 15:21:31][Thread 0026][[akka://repro/system/sharding/sharded#2139169847]] Forwarding request for shard [1] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#859126224]]
+[INFO][07-Sep-18 09:33:40][Thread 0005][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0005][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0005][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0005][ActorSystem(repro)] Extracted shardId [3] from message [1]
+[DEBUG][07-Sep-18 09:33:40][Thread 0005][[akka://repro/system/sharding/sharded#432948515]] Forwarding request for shard [3] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#234748443]]
+[DEBUG][07-Sep-18 09:33:40][Thread 0011][LocalActorRefProvider(akka://repro)] Resolve of path sequence [/deadLetters] failed
+[INFO][07-Sep-18 09:33:40][Thread 0005][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0005][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0005][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0005][ActorSystem(repro)] Extracted shardId [3] from message [1]
+[DEBUG][07-Sep-18 09:33:40][Thread 0005][[akka://repro/system/sharding/sharded#432948515]] Forwarding request for shard [3] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#234748443]]
+[DEBUG][07-Sep-18 09:33:40][Thread 0008][LocalActorRefProvider(akka://repro)] Resolve of path sequence [/deadLetters] failed
+[INFO][07-Sep-18 09:33:40][Thread 0018][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0018][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0018][ActorSystem(repro)] Extracted entityId [3] from message [1]
+[INFO][07-Sep-18 09:33:40][Thread 0018][ActorSystem(repro)] Extracted shardId [3] from message [1]
+[DEBUG][07-Sep-18 09:33:40][Thread 0018][[akka://repro/system/sharding/sharded#432948515]] Forwarding request for shard [3] to [[akka.tcp://repro@127.0.0.1:4053/system/sharding/sharded#234748443]]
+[DEBUG][07-Sep-18 09:33:40][Thread 0008][LocalActorRefProvider(akka://repro)] Resolve of path sequence [/deadLetters] failed
 ```
 
 N.B. `remember-entities` is not used.
